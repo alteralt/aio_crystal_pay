@@ -8,11 +8,19 @@ else:
     requires = []
 
 
+with open("README.md", "r", encoding="utf-8") as f:
+    readme = f.read()
+
+
 name = "aio_crystal_pay"
 author = "alteralt"
 
+
 setuptools.setup(
     name=name,
+    version="1.0",
+    long_description=readme,
+    long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
     author=author,
     include_package_data=True,
