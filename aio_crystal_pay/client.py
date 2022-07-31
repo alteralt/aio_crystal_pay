@@ -35,7 +35,7 @@ class CrystalPay:
 
     @staticmethod
     def _create_secret_hash(*args):
-        return hashlib.md5('@'.join([str(elem) for elem in args]).encode()).hexdigest()
+        return hashlib.md5('@'.join([str(elem) for elem in args]).encode()).hexdigest()  # noqa: B303 nosec: B303
 
     async def create_receipt(self, amount, lifetime, extra=None, callback=None, redirect=None, currency=None):
         operation = 'receipt-create'
