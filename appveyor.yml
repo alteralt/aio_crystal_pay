@@ -8,5 +8,5 @@ environment:
     - PYTHON: C:\\Python39-x64
       PYTHON_VERSION: 3.9
 install:
-  - cmd: '%PYTHON%\\python.exe -m pip install -r requirements.txt && cd test && %PYTHON%\\python.exe -m pip install -r requirements.txt'
+  - cmd: 'python -m pip install -r requirements.txt'
 build: off
