@@ -10,4 +10,6 @@ environment:
 install:
   - cmd: 'python -m pip install -r requirements.txt'
   - cmd: 'python -m pip install -r dev-requirements.txt'
+  - cmd: 'python setup.py install'
+  - cmd: 'pytest'
 build: off
