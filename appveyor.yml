@@ -9,4 +9,5 @@ environment:
       PYTHON_VERSION: 3.9
 install:
   - cmd: 'python -m pip install -r requirements.txt'
+  - cmd: 'python -m pip install -r dev-requirements.txt'
 build: off
