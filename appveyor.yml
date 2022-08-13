@@ -12,5 +12,5 @@ install:
   - cmd: 'python -m pip install -r dev-requirements.txt'
   - cmd: 'python setup.py install'
   - cmd: 'pytest --cov --cov-report=xml'
-  - cmd: 'codecov coverage.xml'
+  - cmd: 'codecov --file=coverage.xml'
 build: off
