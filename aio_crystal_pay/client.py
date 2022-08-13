@@ -47,13 +47,10 @@ class CrystalPay:
             callback=callback or None,
             redirect=redirect or None
         )
-
+        response = await self._request('GET', params)
         if currency:
-            r = await self._request('GET', params)
-            r['url'] = r['url'] + '&m=' + currency
-            return r
-        else:
-            return await self._request('GET', params)
+            response['url'] = response['url'] + '&m=' + currency
+        return response
 
     async def check_receipt(self, receipt_id):
         return await self._request('GET', self.get_params(o='receipt-check', i=receipt_id))
