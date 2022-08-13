@@ -13,5 +13,5 @@ install:
   - cmd: 'python setup.py install'
   - cmd: 'pytest --cov'
   - cmd: 'coverage xml'
-  - cmd: 'codecov -f coverage.xml --token={ CODECOV_TOKEN }'
+  - cmd: 'codecov -f coverage.xml --token=$env:CODECOV_TOKEN'
 build: off
