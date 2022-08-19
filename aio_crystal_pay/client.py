@@ -85,11 +85,12 @@ class CrystalPay:
     async def create_voucher(self, amount, currency, comment=None):
         operation = 'voucher-create'
         voucher_secret = self._create_secret_hash(currency, amount, self.secret2)
-        if comment:
-            params = self.get_params(o=operation, secret=voucher_secret, comment=comment)
-        else:
-            params = self.get_params(o=operation, secret=voucher_secret)
-        return await self._request('GET', params)
+
+        kwargs = {"o": operation, "secret": voucher_secret}
+        if comment is not None:
+            kwargs["comment"] = comment
+
+        return await self._request('GET', self.get_params(**kwargs))
 
     async def voucher_info(self, voucher_code):
         operation = 'voucher-info'
