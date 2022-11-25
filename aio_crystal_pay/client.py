@@ -1,3 +1,4 @@
+import typing
 import hashlib
 import aiohttp
 
@@ -99,3 +100,7 @@ class CrystalPay:
 
     async def activate_voucher(self, voucher_code):
         return await self._request('GET', self.get_params(o='voucher-activate', code=voucher_code))
+
+    def generate_payment_hash(self, payment_id: typing.Union[int, str], currency: str) -> str:
+        hash_object = hashlib.sha1("{}:{}:{}".format(payment_id, currency, self.secret2).encode())
+        return hash_object.hexdigest()
