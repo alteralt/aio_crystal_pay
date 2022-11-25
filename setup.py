@@ -18,7 +18,7 @@ author = "alteralt"
 
 setuptools.setup(
     name=name,
-    version="1.0.3",
+    version="1.0.4",
     long_description=readme,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
