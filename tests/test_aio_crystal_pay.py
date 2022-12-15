@@ -10,13 +10,18 @@ wallet = aio_crystal_pay.CrystalPay("test_name", "test_secret1", "test_secret2")
 
 @pytest.mark.asyncio
 async def test_get_balance(mocker: MockerFixture):
-    mocker.patch("aiohttp.ClientResponse.json", return_value={"balance": 0, "auth": "success"})
+    mocker.patch(
+        "aiohttp.ClientResponse.json", return_value={"balance": 0, "auth": "success"}
+    )
     assert {"balance": 0, "auth": "success"} == await wallet.get_balance()
 
 
 @pytest.mark.asyncio
 async def test_create_receipt(mocker: MockerFixture):
-    mocker.patch("aiohttp.ClientResponse.json", return_value={"auth": "success", "url": "https://test.com"})
+    mocker.patch(
+        "aiohttp.ClientResponse.json",
+        return_value={"auth": "success", "url": "https://test.com"},
+    )
     assert isinstance(await wallet.create_receipt(10, 10, currency="rub"), dict)
 
 
@@ -47,7 +52,9 @@ async def test_p2p_transfer(mocker: MockerFixture):
 @pytest.mark.asyncio
 async def test_create_voucher(mocker: MockerFixture):
     mocker.patch("aiohttp.ClientResponse.json", return_value={"auth": "success"})
-    assert isinstance(await wallet.create_voucher(10, "rub", comment="test_comment"), dict)
+    assert isinstance(
+        await wallet.create_voucher(10, "rub", comment="test_comment"), dict
+    )
 
 
 @pytest.mark.asyncio
