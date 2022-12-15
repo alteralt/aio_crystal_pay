@@ -1,0 +1,11 @@
+name: black
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1  
+      - uses: actions/setup-python@v2
+      - run: pip install black isort
+      - run: black --check aio_crystal_pay
+ 
