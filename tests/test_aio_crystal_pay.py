@@ -74,3 +74,7 @@ async def test_raise_auth_error(mocker: MockerFixture):
     mocker.patch("aiohttp.ClientResponse.json", return_value={"auth": "error"})
     with pytest.raises(aio_crystal_pay.exceptions.AuthorizationError):
         await wallet.get_balance()
+
+
+def test_generate_payment_hash():
+    assert isinstance(wallet.generate_payment_hash(1, "test"), str)
