@@ -7,6 +7,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/alteralt/aio_crystal_pay/badge)](https://www.codefactor.io/repository/github/alteralt/aio_crystal_pay)
 [![repository size](https://img.shields.io/github/repo-size/alteralt/aio_crystal_pay)](https://github.com/alteralt/aio_crystal_pay)
 [![Downloads](https://img.shields.io/pypi/dm/aio_crystal_pay)](https://pypi.python.org/pypi/aio_crystal_pay)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/alteralt/aio_crystal_pay)](https://github.com/alteralt/aio_crystal_pay/commits/)
 
 Установка 
 ```sh
