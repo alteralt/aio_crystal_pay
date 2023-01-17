@@ -1,5 +1,6 @@
-import typing
 import hashlib
+import typing
+
 import aiohttp
 
 from . import exceptions

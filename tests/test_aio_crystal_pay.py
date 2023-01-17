@@ -4,7 +4,6 @@ from pytest_mock import MockerFixture
 
 import aio_crystal_pay
 
-
 wallet = aio_crystal_pay.CrystalPay("test_name", "test_secret1", "test_secret2")
 
 
