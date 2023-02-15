@@ -7,6 +7,7 @@
 [![repository size](https://img.shields.io/github/repo-size/alteralt/aio_crystal_pay)](https://github.com/alteralt/aio_crystal_pay)
 [![Downloads](https://img.shields.io/pypi/dm/aio_crystal_pay)](https://pypi.python.org/pypi/aio_crystal_pay)
 [![Commit activity](https://img.shields.io/github/commit-activity/m/alteralt/aio_crystal_pay)](https://github.com/alteralt/aio_crystal_pay/commits/)
+![GitHub Downloads](https://img.shields.io/github/downloads/alteralt/aio_crystal_pay/total?colorB=blue&label=GitHub+Downloads)
 
 Установка 
 ```sh
