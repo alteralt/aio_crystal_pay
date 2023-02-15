@@ -24,7 +24,12 @@ class CrystalPay:
         )
         return params
 
-    async def _request(self, method: typing.Literal["post"], path: str, body: typing.Optional[dict] = None):
+    async def _request(
+        self,
+        method: typing.Literal["post"],
+        path: str,
+        body: typing.Optional[dict] = None,
+    ):
         if body is None:
             body = {}
         body = self.prepare_body(**body)
@@ -44,19 +49,17 @@ class CrystalPay:
             if 1 == len(errors) and "Invalid auth credentials" == errors[0]:
                 raise exceptions.AuthorizationError(errors[0])
 
-            raise exceptions.BaseCrystalPayException(
-                data
-            )
+            raise exceptions.BaseCrystalPayException(data)
 
     async def create_invoice(
-            self,
-            amount,
-            lifetime,
-            invoice_type: typing.Literal["purchase", "topup"] = "purchase",
-            extra=None,
-            callback_url=None,
-            redirect_url=None,
-            currency=None
+        self,
+        amount,
+        lifetime,
+        invoice_type: typing.Literal["purchase", "topup"] = "purchase",
+        extra=None,
+        callback_url=None,
+        redirect_url=None,
+        currency=None,
     ):
         body = dict(
             amount=amount,
@@ -72,11 +75,11 @@ class CrystalPay:
         return response
 
     async def get_balance(self, hide_empty: bool = False):
-        response = await self._request("post", "balance/info/", {"hide_empty": hide_empty})
+        response = await self._request(
+            "post", "balance/info/", {"hide_empty": hide_empty}
+        )
         return response["balances"]
 
     def generate_payment_hash(self, payment_id: typing.Union[int, str]) -> str:
-        hash_object = hashlib.sha1(
-            "{}:{}".format(payment_id, self.secret2).encode()
-        )
+        hash_object = hashlib.sha1("{}:{}".format(payment_id, self.secret2).encode())
         return hash_object.hexdigest()

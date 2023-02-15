@@ -17,7 +17,10 @@ async def test_get_balance(mocker: MockerFixture):
 
 @pytest.mark.asyncio
 async def test_raise_auth_error(mocker: MockerFixture):
-    mocker.patch("aiohttp.ClientResponse.json", return_value={"error": True, "errors": ["Invalid auth credentials"]})
+    mocker.patch(
+        "aiohttp.ClientResponse.json",
+        return_value={"error": True, "errors": ["Invalid auth credentials"]},
+    )
     with pytest.raises(aio_crystal_pay.exceptions.AuthorizationError):
         await wallet.get_balance()
 
@@ -37,7 +40,10 @@ async def test_create_receipt(mocker: MockerFixture):
 
 @pytest.mark.asyncio
 async def test_request(mocker: MockerFixture):
-    mocker.patch("aiohttp.ClientResponse.json", return_value={"error": True, "errors": ["test_error"]})
+    mocker.patch(
+        "aiohttp.ClientResponse.json",
+        return_value={"error": True, "errors": ["test_error"]},
+    )
 
     with pytest.raises(aio_crystal_pay.exceptions.BaseCrystalPayException):
         await wallet._request("post", "test")
