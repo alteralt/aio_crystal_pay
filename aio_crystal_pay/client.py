@@ -7,7 +7,7 @@ from . import exceptions
 
 
 class CrystalPay:
-    default_url = "https://api.crystalpay.ru/v2/"
+    default_url = "https://api.crystalpay.io/v2/"
 
     def __init__(self, name, secret1, secret2):
         self.secret1 = secret1
